@@ -1,6 +1,8 @@
 # nestjs-test
 
-js버전으로 테스트합니다. (조금 해봣는데 너무 불편하네 ;;)
+git kraken을 테스트해봅니다.
+
+js(language)로 테스트합니다. (조금 해봣는데 너무 불편하네 ;; nest를 쓰려면 ts쓰는게 훨씬 나을지도 ??..)
 
 express가 아닌 fastify로 어뎁트 해서 사용합니다.
 
