@@ -1,0 +1,10 @@
+POST http://localhost:3000/boards HTTP/1.1
+content-type: application/json
+
+{
+    "title":"title 1",
+    "description":"description 1"
+}
+
+
+# GET http://localhost:3000/boards

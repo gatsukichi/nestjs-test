@@ -3,19 +3,23 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class Board {
-  @Prop()
-  id;
+  // @Prop()
+  // id;
 
-  @Prop()
+  @Prop({ type: String })
   title;
 
-  @Prop()
+  @Prop({ type: String })
   description;
 
-  @Prop()
+  @Prop({ type: String })
   status;
 }
 
+export const BoardStatus = {
+  PRIVATE: 'PRIVATE',
+  PUBLIC: 'PRIVATE',
+};
 // export interface Board {
 //   id=this.id;
 //   title=this.title;
@@ -27,3 +31,5 @@ export class Board {
 //   PUBLIC = "PUBLIC",
 //   PRIVATE = "PRIVATE"
 // }
+
+export const BoardSchema = SchemaFactory.createForClass(Board);
