@@ -12,7 +12,6 @@ export class BoardsController {
 
   @Get()
   getAllBoards() {
-    console.log('contorller?');
     return this.boardsService.getAllBoards();
   }
 }
