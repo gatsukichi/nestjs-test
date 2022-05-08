@@ -42,4 +42,9 @@ export class BoardsController {
   deleteBoard(@Param('_id') _id) {
     this.boardsService.deleteBoard(_id);
   }
+
+  @Patch('/_id/status')
+  updateBoardStatus(@Param('_id') _id, @Body('status') status) {
+    return this.boardsService.updateBoardStatus(_id, status);
+  }
 }
