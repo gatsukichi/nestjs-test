@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Delete,
   Dependencies,
   Body,
   Param,
@@ -35,5 +36,10 @@ export class BoardsController {
   @Get('/:_id')
   getBoardById(@Param('_id') _id) {
     return this.boardsService.getBoardById(_id);
+  }
+
+  @Delete('/:_id')
+  deleteBoard(@Param('_id') _id) {
+    this.boardsService.deleteBoard(_id);
   }
 }
