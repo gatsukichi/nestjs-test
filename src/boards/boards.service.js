@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Board, BoardStatus } from './board.model';
+
 @Injectable()
 export class BoardsService {
   // private boards = [] ts에서 사용할때 좋음..
@@ -9,7 +10,8 @@ export class BoardsService {
     return this.boards;
   }
 
-  createBoard(title, description) {
+  createBoard(createBoardDto) {
+    const { title, description } = createBoardDto;
     const board = {
       title,
       description,
@@ -17,5 +19,10 @@ export class BoardsService {
     };
     this.boards.push(board);
     return board;
+  }
+
+  // TODO: 추후 수정
+  getBoardByID(_id) {
+    return this.boards.find((board) => board._id === _id);
   }
 }
