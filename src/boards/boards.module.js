@@ -2,13 +2,15 @@ import { Module } from '@nestjs/common';
 import { BoardsController } from './boards.controller';
 import { BoardsService } from './boards.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { BoardSchema } from './schemas/board.schemas';
+
+import { BoardRepository } from './board.repository';
+import { Board, BoardSchema } from '../schemas/board.schemas';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Board', schema: BoardSchema }]),
+    MongooseModule.forFeature([{ name: Board.name, schema: BoardSchema }]),
   ],
   controllers: [BoardsController],
-  providers: [BoardsService],
+  providers: [BoardsService, BoardRepository],
 })
 export class BoardsModule {}

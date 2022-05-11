@@ -1,16 +1,17 @@
 import { Injectable, NotFoundException, Dependencies } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
+import { BoardRepository } from './board.repository';
 
 @Injectable()
-@Dependencies(getModelToken('Board'))
+@Dependencies(BoardRepository)
 export class BoardsService {
-  constructor(BoardModel) {
-    this.BoardModel = BoardModel;
+  constructor(boardRepository) {
+    this.boardRepository = boardRepository;
   }
   // private boards = [] ts에서 사용할때 좋음..
-
   async getAllBoards() {
-    return await this.BoardModel.find();
+    console.log(this.boardRepository);
+    return await this.boardRepository.findAll();
   }
 
   async createBoard(createBoardDto) {
