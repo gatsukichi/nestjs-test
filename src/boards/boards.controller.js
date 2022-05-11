@@ -41,7 +41,7 @@ export class BoardsController {
 
   @Post()
   @Bind(Body())
-  @UsePipes(ValidationPipe)
+  // @UsePipes(ValidationPipe)
   createBoard(@Body() createBoardDto) {
     console.log(createBoardDto);
     return this.boardsService.createBoard(createBoardDto);
@@ -54,13 +54,13 @@ export class BoardsController {
 
   @Delete('/:_id')
   deleteBoard(@Param('_id') _id) {
-    this.boardsService.deleteBoard(_id);
+    return this.boardsService.deleteBoard(_id);
   }
 
   @Patch('/:_id/status')
   updateBoardStatus(
     @Param('_id') _id,
-    @Body('status', BoardStatusValidationPipe) status,
+    @Body('status' /* BoardStatusValidationPipe */) status,
   ) {
     return this.boardsService.updateBoardStatus(_id, status);
   }
