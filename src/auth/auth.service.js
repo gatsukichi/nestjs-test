@@ -1,4 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Dependencies } from '@nestjs/common';
+import { UserRepository } from './user.repository';
 
 @Injectable()
-export class AuthService {}
+@Dependencies(UserRepository)
+export class AuthService {
+  constructor(userRepository) {
+    this.userRepository = userRepository;
+  }
+}
