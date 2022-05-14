@@ -13,14 +13,29 @@
 import { Injectable, Module } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Board } from '../schemas/board.schemas';
-
+import { createBoardDto } from './dto/create-board.dto';
 @Injectable()
 export class BoardRepository {
   constructor(@InjectModel(Board.name) boardModel) {
     this.boardModel = boardModel;
   }
 
-  async findAll() {
-    return this.boardModel.find();
+  async updateOne(query, updateProps) {
+    return this.boardModel.updateOne(query, updateProps);
+  }
+
+  async deleteOne(query) {
+    return this.boardModel.deleteOne(query);
+  }
+
+  async createOne(props) {
+    return this.boardModel.create(props);
+  }
+  async findAll(query) {
+    return this.boardModel.find(query);
+  }
+
+  async findOne(query) {
+    return this.boardModel.findOne(query);
   }
 }

@@ -10,7 +10,6 @@ export class BoardsService {
   }
   // private boards = [] ts에서 사용할때 좋음..
   async getAllBoards() {
-    console.log(this.boardRepository);
     return await this.boardRepository.findAll();
   }
 
@@ -21,13 +20,12 @@ export class BoardsService {
       description,
       status: 'PUBLIC',
     };
-    return await this.BoardModel.create(board);
+    return await this.boardRepository.createOne(board);
   }
 
   // TODO: 추후 수정
-  getBoardById(_id) {
-    const found = this.BoardModel.findOne({ _id });
-
+  async getBoardById(_id) {
+    const found = await this.boardRepository.findOne({ _id });
     if (!found) {
       throw new NotFoundException(`Can't find Board with _id ${_id}`);
     }
@@ -35,13 +33,17 @@ export class BoardsService {
     return found;
   }
 
-  async deleteBoard(_id) {
-    const found = this.getBoardById(_id);
-    return await found.remove();
+  deleteBoard(_id) {
+    // const found = this.getBoardById(_id);
+    // 두번 쿼리날리는게 거슬린다..
+    return this.boardRepository.deleteOne({ _id });
   }
 
-  async updateBoardStatus(_id, status) {
-    const board = this.getBoardById(_id);
-    return await board.updateOne(board, { status });
+  updateBoardStatus(_id, status) {
+    // const board = this.getBoardById(_id);
+    // 마찬가지로 두번 쿼리날리는게 거슬린다.
+    // memo: 이미 찾은 document가 있는경우 document라는
+    // 몽구스 문서를 읽어보면 첫번째 인자로 찾은 doc을 전달해주면 된다.
+    return this.boardRepository.updateOne({ _id }, { status });
   }
 }

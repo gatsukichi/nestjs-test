@@ -12,7 +12,7 @@ GET http://localhost:3000/boards HTTP/1.1
 
 ###
 
-GET http://localhost:3000/boards/627bb724d352fa1451392d7b HTTP/1.1
+GET http://localhost:3000/boards/627bb8fa3a5eb66cb8d96c86 HTTP/1.1
 
 ###
 
@@ -20,9 +20,9 @@ PATCH http://localhost:3000/boards/627bb8fa3a5eb66cb8d96c86/status HTTP/1.1
 content-type: application/json 
 
 {
-    "status":"PRIVATE"
+    "status":"PUBLIC"
 }
 
 ###
 
-DELETE http://localhost:3000/boards/627bb73e9b2b4e9a9e2830ca HTTP/1.1
+DELETE http://localhost:3000/boards/627bb8fa3a5eb66cb8d96c86 HTTP/1.1
