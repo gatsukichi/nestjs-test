@@ -9,13 +9,15 @@ import {
   Param,
   UsePipes,
   ValidationPipe,
+  UseGuards,
   Bind,
 } from '@nestjs/common';
-
+import { AuthGuard } from '@nestjs/passport';
 import { BoardsService } from './boards.service';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
 @Controller('boards')
+@UseGuards(AuthGuard())
 @Dependencies(BoardsService) //순수 js로 하려고하니.. 생각보다 제약이 많다 ㅠㅠ
 export class BoardsController {
   // constructor(private boardsService:BoardsService){} ts의 접근제한자를 사용해서 아래코드를 위처럼 축약시킬수 있음
