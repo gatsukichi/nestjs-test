@@ -26,3 +26,15 @@ content-type: application/json
 ###
 
 DELETE http://localhost:3000/boards/627bb8fa3a5eb66cb8d96c86 HTTP/1.1
+
+
+
+###
+
+POST http://localhost:3000/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username":"test",
+    "password":1234
+}
