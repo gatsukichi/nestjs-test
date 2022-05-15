@@ -33,4 +33,9 @@ export class UserRepository {
       }
     }
   }
+
+  async findOne(query) {
+    const user = await this.userModel.findOne(query);
+    return user;
+  }
 }

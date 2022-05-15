@@ -12,4 +12,9 @@ export class AuthController {
   signUp(@Body() body) {
     return this.authService.signUp(body);
   }
+
+  @Post('/signin')
+  signIn(@Body() body) {
+    return this.authService.signIn(body);
+  }
 }

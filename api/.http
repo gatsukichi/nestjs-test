@@ -38,3 +38,13 @@ content-type: application/json
     "username":"test1",
     "password":"1234"
 }
+
+###
+
+POST http://localhost:3000/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+    "username":"test1",
+    "password":"1234"
+}
