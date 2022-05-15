@@ -42,7 +42,7 @@ export class BoardsController {
   // The techniques in this section require TypeScript, and are not available if your app is written using vanilla JavaScript.
 
   @Post()
-  @Bind(Body())
+  // @Bind(Body()) => 사실 필요없엇던것..
   // @UsePipes(ValidationPipe)
   createBoard(@Body() createBoardDto) {
     console.log(createBoardDto);

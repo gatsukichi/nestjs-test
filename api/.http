@@ -1,5 +1,6 @@
 POST http://localhost:3000/boards HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxIiwiaWF0IjoxNjUyNjIzNzA0LCJleHAiOjE2NTI2MjczMDR9.qex8NzC9aqk4edzf0uMuvzayLbBTx-eeXnw0x4BUShw
 
 {
     "title":"test1",
