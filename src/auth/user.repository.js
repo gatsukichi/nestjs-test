@@ -26,6 +26,7 @@ export class UserRepository {
       });
     } catch (err) {
       if (err.code === 11000) {
+        // 몽구스 기준 유니크키중복됫을때 발생하는 Error Code
         throw new ConflictException('Existing username');
       } else {
         throw new InternalServerErrorException();
