@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from './get-user.decorator';
 
 @Controller('auth')
 @Dependencies(AuthService)
@@ -28,8 +29,10 @@ export class AuthController {
 
   @Post('/test')
   @UseGuards(AuthGuard())
-  test(@Req() req) {
-    console.log(req);
+  test(@GetUser() user) {
+    console.log(user);
+    //현재 방법으로는 req.user라는곳에서 유저정보를 받아올수 있다.
+    // 하지만 user라는 파라미터로 가져올수는 없을까? -> 커스텀 데코레이터
   }
 
   /**
