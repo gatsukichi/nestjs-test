@@ -13,6 +13,7 @@ import {
   Bind,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from '../auth/get-user.decorator';
 import { BoardsService } from './boards.service';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
@@ -44,9 +45,8 @@ export class BoardsController {
   @Post()
   // @Bind(Body()) => 사실 필요없엇던것..
   // @UsePipes(ValidationPipe)
-  createBoard(@Body() createBoardDto) {
-    console.log(createBoardDto);
-    return this.boardsService.createBoard(createBoardDto);
+  createBoard(@Body() body, @GetUser() user) {
+    return this.boardsService.createBoard({ ...body, owner: user.username });
   }
 
   @Get('/:_id')

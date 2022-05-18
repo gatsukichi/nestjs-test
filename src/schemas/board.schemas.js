@@ -13,6 +13,9 @@ export class Board {
 
   @Prop({ type: String })
   status;
+
+  @Prop({ type: String })
+  owner;
 }
 
 export const BoardSchema = SchemaFactory.createForClass(Board);

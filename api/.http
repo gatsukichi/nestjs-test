@@ -1,6 +1,6 @@
 POST http://localhost:3000/boards HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxIiwiaWF0IjoxNjUyNjIzNzA0LCJleHAiOjE2NTI2MjczMDR9.qex8NzC9aqk4edzf0uMuvzayLbBTx-eeXnw0x4BUShw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxIiwiaWF0IjoxNjUyODgxMjc5LCJleHAiOjE2NTI4ODQ4Nzl9.yyDm0-b_3RgX8QCriKSuyy7z3-kXx6vOWQpXpDkjlL8
 
 {
     "title":"test1",
@@ -54,9 +54,5 @@ content-type: application/json
 ###
 
 POST http://localhost:3000/auth/test HTTP/1.1
-content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxIiwiaWF0IjoxNjUyNjIzNzA0LCJleHAiOjE2NTI2MjczMDR9.qex8NzC9aqk4edzf0uMuvzayLbBTx-eeXnw0x4BUShw
-
-{
-    "test":12
-}
+content-type: text/plain
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxIiwiaWF0IjoxNjUyODgxMjc5LCJleHAiOjE2NTI4ODQ4Nzl9.yyDm0-b_3RgX8QCriKSuyy7z3-kXx6vOWQpXpDkjlL8

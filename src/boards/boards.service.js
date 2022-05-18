@@ -14,11 +14,12 @@ export class BoardsService {
   }
 
   async createBoard(createBoardDto) {
-    const { title, description } = createBoardDto;
+    const { title, description, owner } = createBoardDto;
     const board = {
       title,
       description,
       status: 'PUBLIC',
+      owner,
     };
     return await this.boardRepository.createOne(board);
   }
