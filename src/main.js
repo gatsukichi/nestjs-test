@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger } from '@nestjs/common';
+import * as config from 'config';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -8,8 +9,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());
-  const port = 3000;
-  await app.listen(port, '0.0.0.0');
-  Logger.log(`Application running on port ${port}`);
+  const serverConfig = config.server;
+  // const con = config.get('server');
+  // console.log(con);
+  await app.listen(serverConfig.port, '0.0.0.0');
+  Logger.log(`Application running on port ${serverConfig.port}`);
 }
 bootstrap();

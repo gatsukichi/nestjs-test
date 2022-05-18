@@ -1,0 +1,8 @@
+db:
+  host: 'mongodb://localhost:27017/nest_test'
+  username: 'mongodb'
+  password: 'mongodb'
+  synchronize: true
+
+jwt:
+  secret: 'secret'

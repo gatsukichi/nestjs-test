@@ -1,6 +1,6 @@
 POST http://localhost:3000/boards HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNjUyODgxNjI5LCJleHAiOjE2NTI4ODUyMjl9.j6qOp-hP9At2y1GqL-3SnJbhIdkICCMKkqsw5xo353c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNjUyODg1NjQ1LCJleHAiOjE2NTI4ODkyNDV9.whnmLcGU6APvcDpkCb1ll30bkR7zdaXRqD1hK-RSPzs
 
 {
     "title":"test1asd",
