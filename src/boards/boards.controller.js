@@ -29,8 +29,8 @@ export class BoardsController {
   }
 
   @Get('/')
-  getAllBoards() {
-    return this.boardsService.getAllBoards();
+  getAllBoards(@GetUser() user) {
+    return this.boardsService.getAllBoards({ owner: user.username });
   }
 
   //https://github.com/babel/babel/issues/10221
@@ -55,8 +55,8 @@ export class BoardsController {
   }
 
   @Delete('/:_id')
-  deleteBoard(@Param('_id') _id) {
-    return this.boardsService.deleteBoard(_id);
+  deleteBoard(@Param('_id') _id, @GetUser() user) {
+    return this.boardsService.deleteBoard({ _id, owner: user.username });
   }
 
   @Patch('/:_id/status')

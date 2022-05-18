@@ -9,12 +9,12 @@ export class BoardsService {
     this.boardRepository = boardRepository;
   }
   // private boards = [] ts에서 사용할때 좋음..
-  async getAllBoards() {
-    return await this.boardRepository.findAll();
+  async getAllBoards(query) {
+    return await this.boardRepository.findAll(query);
   }
 
-  async createBoard(createBoardDto) {
-    const { title, description, owner } = createBoardDto;
+  async createBoard(query) {
+    const { title, description, owner } = query;
     const board = {
       title,
       description,
@@ -34,10 +34,10 @@ export class BoardsService {
     return found;
   }
 
-  deleteBoard(_id) {
+  deleteBoard(query) {
     // const found = this.getBoardById(_id);
     // 두번 쿼리날리는게 거슬린다..
-    return this.boardRepository.deleteOne({ _id });
+    return this.boardRepository.deleteOne(query);
   }
 
   updateBoardStatus(_id, status) {
