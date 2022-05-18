@@ -47,6 +47,27 @@ config 라는 모듈 사용해보려고했는데 이상하게 get이 안된다. 
 
 이렇게저렇게 쓰자면 쓸수는 있을거같다.
 
+## memo
+
+배포전 소스코드 에러있는지 확인
+npm run prestart:prod
+
+```json
+"build" : "tsc -p tsconfig.build.json",
+"format" : "prettier --write \"src/**/*.ts\"",
+"start" : "ts-node -r tsconfig-paths/register src/main.ts",
+"start:dev" :  "NODE_ENV=development nodemon",
+"start:debug" : "nodemon --config nodemon-debug.json",
+"prestart:prod" : "rimraf dist && npm run build",
+// 림바? rm -rf 에서 이름따온것으로 dist파일 지우는 목적으로 사용하는듯하다.
+"start:prod": "NODE_ENV=production node dist/main.js",
+"lint" 블라블라
+"테스트" : 제스트
+"테스트:왓치" : 제스트 --watch
+"테스트:커브" : 제스트 --coverage
+
+```
+
 ## Installation
 
 ```bash
