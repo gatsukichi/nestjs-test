@@ -11,6 +11,7 @@ import {
   ValidationPipe,
   UseGuards,
   Bind,
+  Logger,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from '../auth/get-user.decorator';
@@ -22,7 +23,7 @@ import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe'
 @Dependencies(BoardsService) //순수 js로 하려고하니.. 생각보다 제약이 많다 ㅠㅠ
 export class BoardsController {
   // constructor(private boardsService:BoardsService){} ts의 접근제한자를 사용해서 아래코드를 위처럼 축약시킬수 있음
-
+  logger = new Logger('BoardsController');
   // boardsService; // ts의 경우 위에서 한번 선언해야함.
   constructor(boardsService) {
     this.boardsService = boardsService;
@@ -30,6 +31,7 @@ export class BoardsController {
 
   @Get('/')
   getAllBoards(@GetUser() user) {
+    this.logger.verbose(`User ${user.username} trying to get all boards`);
     return this.boardsService.getAllBoards({ owner: user.username });
   }
 
@@ -46,6 +48,11 @@ export class BoardsController {
   // @Bind(Body()) => 사실 필요없엇던것..
   // @UsePipes(ValidationPipe)
   createBoard(@Body() body, @GetUser() user) {
+    this.logger.verbose(
+      `User ${user.username} creating a new board. Payload: ${JSON.stringify(
+        body,
+      )}`,
+    );
     return this.boardsService.createBoard({ ...body, owner: user.username });
   }
 
